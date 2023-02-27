@@ -211,20 +211,33 @@ void PlayScreen::mouseMoveEvent(QMouseEvent *event)
 {
     // 判断鼠标是否在pushButton上
 
-    Sleep(250);
+    Sleep(350);
     int num=0;
+
     for(auto single:Build_Button_list)
     {
         if (single->geometry().contains(this->mapFromGlobal(QCursor::pos())))
         {
-            qDebug()<<"num=="<<num;
+            qDebug()<<"mouseevent num=="<<num;
+            if((num+1)%5==0)
+            {
+                continue;
+            }
             qDebug()<<"按钮"<<num+1;
+            //QString("李某")
+            qDebug()<<"开始从服务器接收数据";
+            building_info_diag->SetLineEditContent_From_serve(2,QString("李某"),0);
+            qDebug()<<"从服务器接收数据完成";
+
+            building_info_diag->SetLineEditContent(num);
+            qDebug()<<"设置lineedit信息完成"<<num;
             building_info_diag->move(single->geometry().x(),single->geometry().y());
             building_info_diag->show();
             return;
         }
         else
         {
+            building_info_diag->ClearLineEditContent();
             building_info_diag->hide();
         }
         num++;

@@ -9,25 +9,47 @@ public:
 
     void Set_building_name(QString _name);
     void Set_User_nmae(QString _name);
+
+    void Set_Grade(int _Grade);
+    void Set_Building_Flag(int flag);
+
+    void Set_Force_money(int _force_sale_money);
     void Set_Money(int _sale_money,int one_level_upgrade_money,
                    int one_level_charge_money,int two_level_upgrade_money,
                    int two_level_charge_money,int three_level_upgrade_money,
                    int three_level_charge_money);
-    void Set_Grade(int _Grade);
-    void Set_Force_money(int _force_sale_money);
+
+
 
     QString Get_building_name();
     QString Get_User_name();
 
+    int Get_Building_grade();
+    int Get_BUilding_Flag();
+
     int Get_sale_money();
     int Get_Force_sale_money();
+
+    int Get_One_level_upgrade_money();
+    int Get_One_level_charge_money();
+
+    int Get_Two_level_upgrade_money();
+    int Get_Two_level_charge_money();
+
+    int Get_Three_level_upgrade_money();
+    int Get_Three_level_charge_money();
+
+
 private:
 
-    QString Build_name;
-    QString User_name;
+    QString Build_name;//建筑名
+    QString User_name;//拥有者姓名
 
-    int Sale_money;//
-    int Force_sale_money;//
+    int Building_grade;//建筑等级
+    int BUilding_Flag;//建筑标志
+
+    int Sale_money;//初始出售价格
+    int Force_sale_money;//强买价格
 
     int One_level_upgrade_money;
     int One_level_charge_money;
@@ -38,7 +60,7 @@ private:
     int Three_level_upgrade_money;
     int Three_level_charge_money;
 
-    int Building_grade;
+
 };
 
 #endif // BUILDING_INFO_H
